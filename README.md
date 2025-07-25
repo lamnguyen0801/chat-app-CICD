@@ -2,8 +2,7 @@
 
 ### Add Jenkins CICD pipeline and Dockerize FE and BE 
 # Snappy - Chat Application 
-Snappy is chat application build with the power of MERN Stack. You can find the tutorial [here](https://www.youtube.com/watch?v=otaQKODEUFs)
-
+Snappy is chat application build with the power of MERN Stack. 
 
 ![login page](./images/snappy_login.png)
 
@@ -27,4 +26,3 @@ after the build is complete run the containers using the following command
 ```shell
 docker compose up
 ```
-now open localhost:3000 in your browser.
