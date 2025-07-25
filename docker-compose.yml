@@ -1,0 +1,30 @@
+version: '3.8'
+services:
+  frontend:
+    container_name: ${NAME_FRONTEND}
+    build:
+      context: ./public
+      dockerfile: "Dockerfile"
+      args:
+        IMAGE_TAG: ${IMAGE_TAG:-1.0.0}
+    restart: always
+    image: ${NAME_FRONTEND}:${IMAGE_TAG}
+    ports:
+      - "3000:80" # sử dụng webserver nginx đang listen ở cổng 80 nên container đang listen cổng 80
+    environment:
+      - IMAGE_TAG=${IMAGE_TAG:-1.0.0}
+      - NAME_FRONTEND=${NAME_FRONTEND}
+  backend:
+    container_name: ${NAME_BACKEND}
+    build:
+      context: ./server                              # Build Dockerfile từ thư mục server
+      dockerfile: "Dockerfile"                       # File Dockerfile tên là "Dockerfile"
+      args:
+        IMAGE_TAG: ${IMAGE_TAG:-1.0.0}    
+    restart: always 
+    image: ${NAME_BACKEND}:${IMAGE_TAG}
+    ports:
+      - "5000:5000"                                    
+    environment:
+      - IMAGE_TAG=${IMAGE_TAG:-1.0.0}                # Truyền biến môi trường vào container
+      - NAME_BACKEND=${NAME_BACKEND}

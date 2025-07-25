@@ -1,0 +1,32 @@
+# Ignore node_modules 
+node_modules/
+
+# Ignore build/dist output
+dist/
+build/
+
+# Ignore git và log
+.git/
+*.log
+npm-debug.log
+
+# Ignore code coverage
+coverage/
+.coverage
+.coverage.*
+
+# Ignore môi trường
+.env
+.env.*
+
+# Ignore AWS config
+.aws/
+
+# Ignore IDE/editor
+.vscode/
+.idea/
+.DS_Store
+
+# Ignore Docker config
+Dockerfile*
+.dockerignore
